@@ -20,7 +20,9 @@ describe('#nextPage', function() {
   it('returns the next page that the reader should see', function() {
     var reader = new BookReader(exampleBook);
     expect(reader.nextPage()).toEqual('array');
+    expect(reader.currentPage).toEqual(1);
     expect(reader.nextPage()).toEqual('of');
+    expect(reader.currentPage).toEqual(2);
   });
 
   it('does not allow the user to turn beyond the last page of the book', function() {
@@ -40,6 +42,7 @@ describe('#previousPage', function() {
     reader.nextPage();
 
     expect(reader.previousPage()).toEqual('array');
+    expect(reader.currentPage).toEqual(1);
   });
 
   it('does not allow the user to turn back beyond the first page of the book', function() {
