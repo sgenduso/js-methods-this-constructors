@@ -23,11 +23,10 @@ BookReader.prototype.pagesLeft = function() {
 };
 
 BookReader.prototype.encouragement = function() {
-  var remaining = this.book.length - (this.currentPage + 1);
-  if (remaining == 1) {
+  if (this.pagesLeft() == 1) {
     return 'Keep going, this book is good \'til the last drop!';
   } else {
-    return 'Keep going, only ' + remaining + ' pages left after this one!';
+    return 'Keep going, only ' + this.pagesLeft() + ' pages left after this one!';
   }
 };
 

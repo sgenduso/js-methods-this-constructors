@@ -1,6 +1,6 @@
 function Taxi(driverName, maxNumberOfPassengers) {
   this.driverName = driverName;
-  this.maxNumberOfPassengers = maxNumberOfPassengers;
+  this.maxNumberOfPassengers = Number(maxNumberOfPassengers);
   this.passengers = [];
 }
 
@@ -9,11 +9,11 @@ Taxi.prototype.addPassenger = function(passengerName) {
 };
 
 Taxi.prototype.passengerCount = function () {
-  return this.passengers.length;
+  return Number(this.passengers.length);
 };
 
 Taxi.prototype.full = function () {
-  if (this.passengers.length === this.maxNumberOfPassengers) {
+  if (this.passengerCount() === this.maxNumberOfPassengers) {
     return true;
   } else {
     return false;
